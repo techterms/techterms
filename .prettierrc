@@ -5,5 +5,14 @@
   "trailingComma": "es5",
   "printWidth": 100,
   "bracketSpacing": true,
-  "arrowParens": "avoid"
-} 
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
+}
