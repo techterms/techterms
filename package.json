@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   },
   "homepage": "https://github.com/techterms/techterms#readme",
   "dependencies": {
-    "astro": "^5.9.3"
+    "@tailwindcss/vite": "^4.1.10",
+    "astro": "^5.9.3",
+    "tailwindcss": "^4.1.10"
   }
 }
