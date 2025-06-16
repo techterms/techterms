@@ -26,8 +26,31 @@ env:
   # BUILD_PATH: subfolder
 
 jobs:
+  lint:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: 'npm'
+          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Check formatting
+        run: npm run format:check
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Check linting
+        run: npm run lint
+        working-directory: ${{ env.BUILD_PATH }}
+
   build:
     name: Build
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
