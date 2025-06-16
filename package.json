@@ -1,7 +1,7 @@
 {
   "name": "techterms",
   "version": "1.0.0",
-  "description": "",
+  "description": "A collection of tech terms and their definitions",
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
