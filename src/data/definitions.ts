@@ -3,7 +3,7 @@ import { Categories } from '../models/Categories';
 
 export const definitions: Definition[] = [
   {
-    id: 'def_api',
+    id: 'api',
     term: 'API',
     explanation:
       'Application Programming Interface - a set of rules and protocols that allows different software applications to communicate with each other.',
@@ -14,7 +14,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    id: 'def_rest',
+    id: 'rest',
     term: 'REST',
     explanation:
       'Representational State Transfer - an architectural style for designing networked applications, particularly web services.',
@@ -22,7 +22,7 @@ export const definitions: Definition[] = [
     related: ['https://en.wikipedia.org/wiki/REST', 'https://restfulapi.net/'],
   },
   {
-    id: 'def_git',
+    id: 'git',
     term: 'Git',
     explanation:
       'A distributed version control system that tracks changes in source code during software development.',
@@ -30,7 +30,7 @@ export const definitions: Definition[] = [
     related: ['https://git-scm.com/', 'https://github.com/'],
   },
   {
-    id: 'def_docker',
+    id: 'docker',
     term: 'Docker',
     explanation:
       'A platform for developing, shipping, and running applications in containers, which are lightweight and portable.',
@@ -38,7 +38,7 @@ export const definitions: Definition[] = [
     related: ['https://www.docker.com/', 'https://docs.docker.com/'],
   },
   {
-    id: 'def_microservices',
+    id: 'microservices',
     term: 'Microservices',
     explanation:
       'An architectural style that structures an application as a collection of loosely coupled, independently deployable services.',
