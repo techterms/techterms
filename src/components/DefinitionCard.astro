@@ -1,9 +1,8 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import type { Definition } from '../models/Definition';
 
 interface Props {
-  definition: CollectionEntry<Definition>;
+  definition: Definition;
 }
 
 const { definition } = Astro.props;
