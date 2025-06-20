@@ -26,7 +26,7 @@ export const definitions: Definition[] = [
     term: 'Git',
     explanation:
       'A distributed version control system that tracks changes in source code during software development.',
-    categories: [Categories.VersionControl],
+    categories: [Categories.VersionControl, Categories.DevOps],
     related: ['https://git-scm.com/', 'https://github.com/'],
   },
   {

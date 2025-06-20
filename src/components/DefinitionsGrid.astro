@@ -1,3 +1,14 @@
-<div>
-  <!-- Definitions grid -->
+---
+import DefinitionCard from './DefinitionCard.astro';
+import type { Definition } from '../models/Definition';
+
+interface Props {
+  definitions: Definition[];
+}
+
+const { definitions } = Astro.props;
+---
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+  {definitions.map(definition => <DefinitionCard definition={definition} />)}
 </div>

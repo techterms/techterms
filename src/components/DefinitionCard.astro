@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Definition } from '../models/Definition';
+
+interface Props {
+  definition: CollectionEntry<Definition>;
+}
+
+const { definition } = Astro.props;
+---
+
+<div class="rounded-lg bg-white p-4 shadow-md">
+  <p class="mb-4 text-sm text-gray-600">
+    {
+      definition.categories.map(category => (
+        <span class="text-primary hover:text-primary text-sm">{category}</span>
+      ))
+    }
+  </p>
+  <h2 class="mb-2 text-lg font-bold">{definition.term}</h2>
+  <p class="text-sm text-gray-600">{definition.explanation}</p>
+
+  <hr class="my-4 border-gray-200" />
+
+  {
+    definition.related && definition.related.length > 0 && (
+      <>
+        <p class="text-sm font-bold">Related:</p>
+        <ul class="list-inside list-disc">
+          {definition.related.map(related => (
+            <li>
+              <a href={related} class="text-sm text-blue-500 hover:text-blue-700">
+                {related}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</div>
