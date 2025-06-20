@@ -1,5 +1,13 @@
 ---
 import '../styles/global.css';
+import CategoriesFilter from '../components/CategoriesFilter.astro';
+import ContributeCard from '../components/ContributeCard.astro';
+import DefinitionsGrid from '../components/DefinitionsGrid.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Headline from '../components/Headline.astro';
+import Sidebar from '../components/Sidebar.astro';
+import StatsCard from '../components/StatsCard.astro';
 ---
 
 <!doctype html>
@@ -10,7 +18,18 @@ import '../styles/global.css';
     <title>Tech Terms</title>
   </head>
   <body>
-    <h1>Tech Terms</h1>
-    <p>A collection of tech terms and their definitions</p>
+    <Header />
+    <main>
+      <Sidebar />
+
+      <div class="page">
+        <Headline />
+        <CategoriesFilter />
+        <DefinitionsGrid />
+        <ContributeCard />
+        <StatsCard />
+        <Footer />
+      </div>
+    </main>
   </body>
 </html>

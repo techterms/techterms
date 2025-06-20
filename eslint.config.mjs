@@ -6,7 +6,7 @@ import prettier from 'eslint-config-prettier';
 
 export default [
   {
-    ignores: ['.astro/**', 'dist/**'],
+    ignores: ['.astro/**', 'dist/**', '**/*.css'],
   },
   eslint.configs.recommended,
   ...astroPlugin.configs['flat/recommended'],
