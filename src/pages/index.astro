@@ -21,10 +21,10 @@ import { definitions } from '../data/definitions';
   </head>
   <body>
     <Header />
-    <main>
+    <main class="flex min-h-screen">
       <Sidebar />
 
-      <div class="page">
+      <div class="flex-1 overflow-auto">
         <Headline />
         <CategoriesFilter />
         <DefinitionsGrid definitions={definitions} />
