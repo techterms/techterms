@@ -8,6 +8,8 @@ import Header from '../components/Header.astro';
 import Headline from '../components/Headline.astro';
 import Sidebar from '../components/Sidebar.astro';
 import StatsCard from '../components/StatsCard.astro';
+
+import { definitions } from '../data/definitions';
 ---
 
 <!doctype html>
@@ -25,7 +27,7 @@ import StatsCard from '../components/StatsCard.astro';
       <div class="page">
         <Headline />
         <CategoriesFilter />
-        <DefinitionsGrid />
+        <DefinitionsGrid definitions={definitions} />
         <ContributeCard />
         <StatsCard />
         <Footer />
