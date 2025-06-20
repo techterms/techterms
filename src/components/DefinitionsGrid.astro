@@ -9,6 +9,8 @@ interface Props {
 const { definitions } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-  {definitions.map(definition => <DefinitionCard definition={definition} />)}
+<div class="container mx-auto px-8 py-8">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {definitions.map(definition => <DefinitionCard definition={definition} />)}
+  </div>
 </div>
