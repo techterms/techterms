@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DefinitionCard from '../../components/DefinitionCard.astro';
+import { definitions } from '../../data/definitions';
+
+export function getStaticPaths() {
+  const definitionIds = definitions.map(definition => definition.id);
+  return definitionIds.map(id => ({ params: { id } }));
+}
+
+const { id } = Astro.params;
+const definition = definitions.find(definition => definition.id === id);
+if (!definition) {
+  throw new Error('Definition not found!');
+}
+---
+
+<Layout>
+  <main>
+    <DefinitionCard definition={definition} />
+  </main>
+</Layout>

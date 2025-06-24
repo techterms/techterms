@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 import CategoriesFilter from '../components/CategoriesFilter.astro';
 import ContributeCard from '../components/ContributeCard.astro';
 import DefinitionsGrid from '../components/DefinitionsGrid.astro';
@@ -12,26 +13,24 @@ import StatsCard from '../components/StatsCard.astro';
 import { definitions } from '../data/definitions';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Terms</title>
-  </head>
-  <body>
-    <Header />
-    <main class="flex min-h-screen">
-      <Sidebar />
+<Layout>
+  <Header />
+  <main class="flex min-h-screen">
+    <Sidebar />
 
-      <div class="flex-1 overflow-auto">
-        <Headline />
-        <CategoriesFilter />
-        <DefinitionsGrid definitions={definitions} />
-        <ContributeCard />
-        <StatsCard />
-        <Footer />
+    <div class="flex-1 overflow-auto">
+      <Headline />
+      <CategoriesFilter />
+      <DefinitionsGrid definitions={definitions} />
+
+      <div class="container mx-auto px-8 py-8">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <StatsCard />
+          <ContributeCard />
+        </div>
       </div>
-    </main>
-  </body>
-</html>
+
+      <Footer />
+    </div>
+  </main>
+</Layout>
