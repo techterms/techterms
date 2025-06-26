@@ -1,0 +1,46 @@
+---
+import '../../styles/global.css';
+import CategoriesFilter from '../../components/CategoriesFilter.astro';
+import ContributeCard from '../../components/ContributeCard.astro';
+import DefinitionsGrid from '../../components/DefinitionsGrid.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Headline from '../../components/Headline.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import StatsCard from '../../components/StatsCard.astro';
+import Layout from '../../layouts/Layout.astro';
+import { Categories } from '../../models/Categories';
+import { definitions } from '../../data/definitions';
+
+export function getStaticPaths() {
+  const categories = Object.values(Categories);
+  return categories.map(category => ({ params: { category } }));
+}
+
+const { category } = Astro.params;
+const filteredDefinitions = definitions.filter(definition =>
+  definition.categories.includes(category)
+);
+---
+
+<Layout>
+  <Header />
+  <main class="flex min-h-screen">
+    <Sidebar />
+
+    <div class="flex-1 overflow-auto">
+      <Headline />
+      <CategoriesFilter activeCategory={category} />
+      <DefinitionsGrid definitions={filteredDefinitions} />
+
+      <div class="container mx-auto px-8 py-8">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <StatsCard />
+          <ContributeCard />
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  </main>
+</Layout>
