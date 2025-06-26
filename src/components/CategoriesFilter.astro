@@ -1,3 +1,58 @@
-<div>
-  <!-- Categories filter -->
+---
+import { Categories, CategoriesMetadata } from '../models/Categories';
+import { definitions } from '../data/definitions';
+
+interface Props {
+  activeCategory?: string | Categories;
+}
+
+const { activeCategory = 'all' } = Astro.props;
+const usedCategoriesNames = [...new Set(definitions.flatMap(def => def.categories))];
+
+const allCategories = Object.values(Categories);
+const usedCategories = allCategories.filter(category => usedCategoriesNames.includes(category));
+---
+
+<div class="container mx-auto px-8 pt-8">
+  <div class="flex flex-wrap gap-2">
+    <!-- All categories button -->
+    <a
+      href="/"
+      class={`rounded-lg border px-3 py-2 text-left transition-colors duration-200 hover:cursor-pointer ${
+        activeCategory === 'all'
+          ? 'border-blue-300 bg-blue-100 text-blue-700'
+          : 'border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+      }`}
+    >
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium">All</span>
+        <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600"
+          >{definitions.length}</span
+        >
+      </div>
+    </a>
+
+    {
+      usedCategories.map(category => {
+        const count = definitions.filter(def => def.categories.includes(category)).length;
+        const isActive = activeCategory === category;
+
+        return (
+          <a
+            href={`/c/${category}`}
+            class={`rounded-lg border px-3 py-2 text-left transition-colors duration-200 hover:cursor-pointer ${
+              isActive
+                ? 'border-blue-300 bg-blue-100 text-blue-700'
+                : 'border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+            }`}
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">{CategoriesMetadata[category].label}</span>
+              <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">{count}</span>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
 </div>

@@ -1,8 +1,33 @@
 export enum Categories {
-  'WebDevelopment' = 'Web Development',
-  'VersionControl' = 'Version Control',
-  'DevOps' = 'DevOps',
-  'SoftwareArchitecture' = 'Software Architecture',
-  'Database' = 'Database',
-  'SoftwareEngineering' = 'Software Engineering',
+  'WebDevelopment' = 'web-development',
+  'VersionControl' = 'version-control',
+  'DevOps' = 'devops',
+  'SoftwareArchitecture' = 'software-architecture',
+  'Database' = 'database',
+  'SoftwareEngineering' = 'software-engineering',
 }
+
+type CategoryMetadata = {
+  label: string;
+};
+
+export const CategoriesMetadata: Record<Categories, CategoryMetadata> = {
+  [Categories.WebDevelopment]: {
+    label: 'Web Development',
+  },
+  [Categories.VersionControl]: {
+    label: 'Version Control',
+  },
+  [Categories.DevOps]: {
+    label: 'DevOps',
+  },
+  [Categories.SoftwareArchitecture]: {
+    label: 'Software Architecture',
+  },
+  [Categories.Database]: {
+    label: 'Database',
+  },
+  [Categories.SoftwareEngineering]: {
+    label: 'Software Engineering',
+  },
+};

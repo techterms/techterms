@@ -1,6 +1,6 @@
 ---
 import ContributeButton from './ContributeButton.astro';
-import { Categories } from '../models/Categories';
+import { Categories, CategoriesMetadata } from '../models/Categories';
 import { definitions } from '../data/definitions';
 
 // Get unique categories from definitions
@@ -27,7 +27,7 @@ const usedCategories = [...new Set(definitions.flatMap(def => def.categories))];
               disabled={!isUsed}
             >
               <div class="flex items-center justify-between">
-                <span class="text-sm font-medium">{category}</span>
+                <span class="text-sm font-medium">{CategoriesMetadata[category].label}</span>
                 {isUsed && (
                   <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">
                     {count}
