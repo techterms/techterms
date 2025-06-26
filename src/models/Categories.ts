@@ -4,6 +4,7 @@ export enum Categories {
   'DevOps' = 'devops',
   'SoftwareArchitecture' = 'software-architecture',
   'Database' = 'database',
+  'SoftwareEngineering' = 'software-engineering',
 }
 
 type CategoryMetadata = {
@@ -25,5 +26,8 @@ export const CategoriesMetadata: Record<Categories, CategoryMetadata> = {
   },
   [Categories.Database]: {
     label: 'Database',
+  },
+  [Categories.SoftwareEngineering]: {
+    label: 'Software Engineering',
   },
 };
