@@ -4,4 +4,5 @@ export enum Categories {
   'DevOps' = 'DevOps',
   'SoftwareArchitecture' = 'Software Architecture',
   'Database' = 'Database',
+  'SoftwareEngineering' = 'Software Engineering',
 }
