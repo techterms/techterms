@@ -1,3 +1,28 @@
-<div>
-  <!-- Categories filter -->
+---
+import { Categories } from '../models/Categories';
+import { definitions } from '../data/definitions';
+
+// Get unique categories from definitions
+const usedCategoriesNames = [...new Set(definitions.flatMap(def => def.categories))];
+
+const allCategories = Object.values(Categories);
+const usedCategories = allCategories.filter(category => usedCategoriesNames.includes(category));
+---
+
+<div class="container mx-auto px-8 pt-8">
+  <div class="flex flex-wrap gap-2">
+    {
+      usedCategories.map(category => {
+        const count = definitions.filter(def => def.categories.includes(category)).length;
+        return (
+          <button class="rounded-lg border border-gray-200 px-3 py-2 text-left text-gray-700 transition-colors duration-200 hover:cursor-pointer hover:bg-gray-100 hover:text-gray-900">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">{category}</span>
+              <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">{count}</span>
+            </div>
+          </button>
+        );
+      })
+    }
+  </div>
 </div>
