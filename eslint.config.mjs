@@ -34,6 +34,9 @@ export default [
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
+      globals: {
+        Response: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
