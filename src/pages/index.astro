@@ -7,6 +7,7 @@ import DefinitionsGrid from '../components/DefinitionsGrid.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Headline from '../components/Headline.astro';
+import Search from '../components/Search.astro';
 import Sidebar from '../components/Sidebar.astro';
 import StatsCard from '../components/StatsCard.astro';
 
@@ -19,8 +20,9 @@ import { definitions } from '../data/definitions';
     <Sidebar />
 
     <div class="flex-1 overflow-auto">
-      <CategoriesFilter />
       <Headline />
+      <CategoriesFilter />
+      <Search />
       <DefinitionsGrid definitions={definitions} />
 
       <div class="container mx-auto px-8 py-8">

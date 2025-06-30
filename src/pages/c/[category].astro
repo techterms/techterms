@@ -6,6 +6,7 @@ import DefinitionsGrid from '../../components/DefinitionsGrid.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import Headline from '../../components/Headline.astro';
+import Search from '../../components/Search.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import StatsCard from '../../components/StatsCard.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -29,8 +30,9 @@ const filteredDefinitions = definitions.filter(definition =>
     <Sidebar activeCategory={category} />
 
     <div class="flex-1 overflow-auto">
-      <CategoriesFilter activeCategory={category} />
       <Headline />
+      <CategoriesFilter activeCategory={category} />
+      <Search />
       <DefinitionsGrid definitions={filteredDefinitions} />
 
       <div class="container mx-auto px-8 py-8">
