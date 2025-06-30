@@ -1,3 +1,5 @@
+import type { Definition } from './Definition';
+
 export enum Categories {
   'WebDevelopment' = 'web-development',
   'VersionControl' = 'version-control',
@@ -31,3 +33,21 @@ export const CategoriesMetadata: Record<Categories, CategoryMetadata> = {
     label: 'Software Engineering',
   },
 };
+
+type CategoryData = {
+  key: Categories;
+  label: string;
+  count: number;
+};
+
+export const getAllCategoriesData = (definitions: Definition[]): CategoryData[] =>
+  Object.values(Categories).map(category => ({
+    key: category,
+    label: CategoriesMetadata[category].label,
+    count: definitions.filter(def => def.categories.includes(category)).length,
+  }));
+
+export const getUsedCategoriesData = (definitions: Definition[]): CategoryData[] =>
+  getAllCategoriesData(definitions)
+    .filter(category => category.count > 0)
+    .sort((a, b) => b.count - a.count);
