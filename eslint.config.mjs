@@ -34,6 +34,17 @@ export default [
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
+      globals: {
+        Response: 'readonly',
+        document: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLInputElement: 'readonly',
+        Event: 'readonly',
+        EventTarget: 'readonly',
+        NodeList: 'readonly',
+        Element: 'readonly',
+        Node: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,

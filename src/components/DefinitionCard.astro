@@ -8,7 +8,7 @@ interface Props {
 const { definition } = Astro.props;
 ---
 
-<div class="rounded-lg bg-white p-4 shadow-md">
+<div data-type="definition-card" class="rounded-lg bg-white p-4 shadow-md">
   <p class="mb-4 text-sm text-gray-600">
     {
       definition.categories.map(category => (
@@ -16,8 +16,8 @@ const { definition } = Astro.props;
       ))
     }
   </p>
-  <h2 class="mb-2 text-lg font-bold">{definition.term}</h2>
-  <p class="text-sm text-gray-600">{definition.explanation}</p>
+  <h2 data-type="definition-term" class="mb-2 text-lg font-bold">{definition.term}</h2>
+  <p data-type="definition-explanation" class="text-sm text-gray-600">{definition.explanation}</p>
 
   <hr class="my-4 border-gray-200" />
 

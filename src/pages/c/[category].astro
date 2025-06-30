@@ -29,8 +29,8 @@ const filteredDefinitions = definitions.filter(definition =>
     <Sidebar activeCategory={category} />
 
     <div class="flex-1 overflow-auto">
-      <Headline />
       <CategoriesFilter activeCategory={category} />
+      <Headline />
       <DefinitionsGrid definitions={filteredDefinitions} />
 
       <div class="container mx-auto px-8 py-8">
