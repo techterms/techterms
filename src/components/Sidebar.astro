@@ -1,6 +1,6 @@
 ---
 import ContributeButton from './ContributeButton.astro';
-import { Categories, CategoriesMetadata } from '../models/Categories';
+import { Categories, getUsedCategoriesData } from '../models/Categories';
 import { definitions } from '../data/definitions';
 
 interface Props {
@@ -8,35 +8,28 @@ interface Props {
 }
 
 const { activeCategory = 'all' } = Astro.props;
-const usedCategoriesNames = [...new Set(definitions.flatMap(def => def.categories))];
-
-const allCategories = Object.values(Categories);
-const usedCategories = allCategories.filter(category => usedCategoriesNames.includes(category));
+const usedCategories = getUsedCategoriesData(definitions);
 ---
 
 <aside class="w-64 space-y-8 border-r border-gray-200 bg-white p-6">
-  <!-- Category Filter Section -->
   <div class="space-y-4">
     <h3 class="mb-4 text-lg font-semibold text-gray-900">Categories</h3>
     <div class="space-y-2">
       {
-        usedCategories.map(category => {
-          const count = definitions.filter(def => def.categories.includes(category)).length;
-          const isActive = activeCategory === category;
-
-          return (
-            <a
-              href={`/c/${category}`}
-              class={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 ${
-                isActive ? 'bg-gray-100 text-gray-700' : 'text-gray-400'
-              }`}
-            >
-              <span class="text-sm font-medium">{CategoriesMetadata[category].label}</span>
-              <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">{count}</span>
-            </a>
-          );
-        })
-      }
+        usedCategories.map(category => (
+          <a
+            href={`/c/${category}`}
+            class={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 ${
+              activeCategory === category.key ? 'bg-gray-100 text-gray-700' : 'text-gray-400'
+            }`}
+          >
+            <span class="text-sm font-medium">{category.label}</span>
+            <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">
+              {category.count}
+            </span>
+          </a>
+        ))
+      };
     </div>
   </div>
 

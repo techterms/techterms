@@ -1,5 +1,5 @@
 ---
-import { Categories, CategoriesMetadata } from '../models/Categories';
+import { Categories, getUsedCategoriesData } from '../models/Categories';
 import { definitions } from '../data/definitions';
 
 interface Props {
@@ -7,15 +7,11 @@ interface Props {
 }
 
 const { activeCategory = 'all' } = Astro.props;
-const usedCategoriesNames = [...new Set(definitions.flatMap(def => def.categories))];
-
-const allCategories = Object.values(Categories);
-const usedCategories = allCategories.filter(category => usedCategoriesNames.includes(category));
+const usedCategories = getUsedCategoriesData(definitions);
 ---
 
 <div class="container mx-auto px-8 pt-8">
   <div class="flex flex-wrap gap-2">
-    <!-- All categories button -->
     <a
       href="/"
       class={`rounded-lg border px-3 py-2 text-left transition-colors duration-200 hover:cursor-pointer ${
@@ -33,26 +29,23 @@ const usedCategories = allCategories.filter(category => usedCategoriesNames.incl
     </a>
 
     {
-      usedCategories.map(category => {
-        const count = definitions.filter(def => def.categories.includes(category)).length;
-        const isActive = activeCategory === category;
-
-        return (
-          <a
-            href={`/c/${category}`}
-            class={`rounded-lg border px-3 py-2 text-left transition-colors duration-200 hover:cursor-pointer ${
-              isActive
-                ? 'border-blue-300 bg-blue-100 text-blue-700'
-                : 'border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-            }`}
-          >
-            <div class="flex items-center justify-between">
-              <span class="text-sm font-medium">{CategoriesMetadata[category].label}</span>
-              <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">{count}</span>
-            </div>
-          </a>
-        );
-      })
+      usedCategories.map(category => (
+        <a
+          href={`/c/${category.key}`}
+          class={`rounded-lg border px-3 py-2 text-left transition-colors duration-200 hover:cursor-pointer ${
+            activeCategory === category.key
+              ? 'border-blue-300 bg-blue-100 text-blue-700'
+              : 'border-gray-200 text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+          }`}
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium">{category.label}</span>
+            <span class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600">
+              {category.count}
+            </span>
+          </div>
+        </a>
+      ))
     }
   </div>
 </div>
