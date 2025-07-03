@@ -2,3 +2,9 @@
 # Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://techterms.io/sitemap-index.xml
+
+# Crawl-delay
+Crawl-delay: 1
