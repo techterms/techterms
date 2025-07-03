@@ -1,6 +1,12 @@
 ---
+import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import DefinitionCard from '../../components/DefinitionCard.astro';
+import Header from '../../components/Header.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Headline from '../../components/Headline.astro';
+import Footer from '../../components/Footer.astro';
+
 import { definitions } from '../../data/definitions';
 
 export function getStaticPaths() {
@@ -16,7 +22,18 @@ if (!definition) {
 ---
 
 <Layout>
-  <main>
-    <DefinitionCard definition={definition} />
+  <Header />
+  <main class="flex min-h-screen">
+    <Sidebar />
+
+    <div class="flex-1 overflow-auto">
+      <Headline />
+
+      <div class="container mx-auto px-8 py-8">
+        <DefinitionCard definition={definition} />
+      </div>
+
+      <Footer />
+    </div>
   </main>
 </Layout>
