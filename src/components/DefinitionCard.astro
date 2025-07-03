@@ -16,7 +16,10 @@ const { definition } = Astro.props;
       ))
     }
   </p>
-  <h2 data-type="definition-term" class="mb-2 text-lg font-bold">{definition.term}</h2>
+
+  <h2 data-type="definition-term" class="mb-2 text-lg font-bold">
+    <a href={`/t/${definition.id}`} class="text-black hover:text-blue-900">{definition.term}</a>
+  </h2>
   <p data-type="definition-explanation" class="text-sm text-gray-600">{definition.explanation}</p>
 
   <hr class="my-4 border-gray-200" />
