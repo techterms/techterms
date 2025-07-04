@@ -22,9 +22,22 @@ const { category } = Astro.params;
 const filteredDefinitions = definitions.filter(definition =>
   definition.categories.includes(category)
 );
+
+// SEO properties for the category page
+const title = `${category} Terms - Simple Explanations of Common Tech Terms & Concepts | Tech Terms`;
+const description = `Explore ${category.toLowerCase()} technology terms and definitions. Learn about key concepts, terminology, and definitions in the ${category.toLowerCase()} field.`;
+const canonical = new URL(`/c/${category}`, Astro.site || 'https://techterms.io').href;
+const tags = [category, 'technology', 'definitions', 'tech terms'];
 ---
 
-<Layout>
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  type="website"
+  section={category}
+  tags={tags}
+>
   <Header />
   <main class="flex min-h-screen">
     <Sidebar activeCategory={category} />

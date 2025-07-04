@@ -19,9 +19,25 @@ const definition = definitions.find(definition => definition.id === id);
 if (!definition) {
   throw new Error('Definition not found!');
 }
+
+// SEO properties for the term page
+const title = `${definition.term} - Simple Explanations of Common Tech Terms & Concepts | Tech Terms`;
+const description =
+  definition.explanation.length > 160
+    ? definition.explanation.substring(0, 157) + '...'
+    : definition.explanation;
+const canonical = new URL(`/t/${id}`, Astro.site || 'https://techterms.io').href;
+const tags = [definition.term, ...definition.categories, 'technology', 'definition'];
 ---
 
-<Layout>
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  type="article"
+  section="Technology Definitions"
+  tags={tags}
+>
   <Header />
   <main class="flex min-h-screen">
     <Sidebar />
