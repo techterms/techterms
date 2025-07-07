@@ -1,6 +1,7 @@
 ---
 import Logo from '../assets/logo.svg';
 import ContributeButton from './ContributeButton.astro';
+import { version } from '../../version.json';
 ---
 
 <header class="flex">
@@ -10,7 +11,17 @@ import ContributeButton from './ContributeButton.astro';
     </a>
   </div>
   <nav class="flex flex-1 items-center justify-between border-b border-gray-200 p-6">
-    <span class="text-lg">TechTerms.io</span>
+    <div class="flex items-center gap-2">
+      <span class="text-lg">TechTerms.io</span>
+
+      <a
+        href="https://github.com/techterms/techterms/releases/tag/v{version}"
+        target="_blank"
+        class="rounded-md bg-gray-700 px-2 py-1 font-mono text-xs font-bold text-white"
+      >
+        v{version}
+      </a>
+    </div>
     <ContributeButton label="Contribute to Tech Terms" />
   </nav>
 </header>
