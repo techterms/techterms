@@ -1,29 +1,22 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Release
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['main']
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
 
 env:
-  BUILD_PATH: '.' # default value when not using subfolders
-  # BUILD_PATH: subfolder
+  BUILD_PATH: '.'
 
 jobs:
   lint:
@@ -48,9 +41,62 @@ jobs:
         run: npm run lint
         working-directory: ${{ env.BUILD_PATH }}
 
+  bump-version:
+    name: Bump Version
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.BOT_PAT }}
+          fetch-depth: 0 # Needed for pushing tags
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Bump patch version
+        id: bump
+        run: |
+          current_version=$(jq -r '.version' version.json)
+          IFS='.' read -r major minor patch <<< "$current_version"
+          patch=$((patch + 1))
+          new_version="$major.$minor.$patch"
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+          jq --arg v "$new_version" '.version = $v' version.json > tmp.json && mv tmp.json version.json
+
+      - name: Commit and push changes
+        env:
+          PAT: ${{ secrets.BOT_PAT }}
+        run: |
+          git config user.name "techterms-bot"
+          git config user.email "techterms@proton.me"
+          git add version.json
+          git commit -m "chore: bump version to v${{ steps.bump.outputs.new_version }}"
+          git push
+
+      - name: Tag version
+        env:
+          PAT: ${{ secrets.BOT_PAT }}
+        run: |
+          git tag "v${{ steps.bump.outputs.new_version }}"
+          git push origin "v${{ steps.bump.outputs.new_version }}"
+
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_PAT }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.bump.outputs.new_version }}
+          name: Release v${{ steps.bump.outputs.new_version }}
+          draft: false
+          prerelease: false
+
   build:
     name: Build
-    needs: lint
+    needs: bump-version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
