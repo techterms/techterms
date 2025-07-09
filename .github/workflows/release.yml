@@ -5,6 +5,11 @@ on:
     branches: ['main']
 
   workflow_dispatch:
+    inputs:
+        dry_run:
+          description: 'Dry run mode (no tag or release)'
+          required: false
+          default: 'false'
 
 permissions:
   contents: read
@@ -70,6 +75,7 @@ jobs:
           jq --arg v "$new_version" '.version = $v' version.json > tmp.json && mv tmp.json version.json
 
       - name: Commit and push changes
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           PAT: ${{ secrets.BOT_PAT }}
         run: |
@@ -80,6 +86,7 @@ jobs:
           git push
 
       - name: Tag version
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           PAT: ${{ secrets.BOT_PAT }}
         run: |
@@ -115,7 +122,12 @@ jobs:
             echo "EOF" >> $GITHUB_OUTPUT
           fi
 
+      - name: Show Release Body
+        run: |
+          echo "${{ steps.release_notes.outputs.body }}"
+
       - name: Create GitHub Release
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_PAT }}
         uses: softprops/action-gh-release@v2
@@ -163,12 +175,15 @@ jobs:
           node-version: '24'
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
@@ -190,5 +205,6 @@ jobs:
     name: Deploy
     steps:
       - name: Deploy to GitHub Pages
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         id: deployment
         uses: actions/deploy-pages@v4
