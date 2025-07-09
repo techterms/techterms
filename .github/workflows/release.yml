@@ -95,7 +95,11 @@ jobs:
 
       - name: Generate release notes
         id: release_notes
+        shell: bash {0}
         run: |
+          # Debug mode
+          set -x
+
           # Get the previous tag
           previous_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
 
