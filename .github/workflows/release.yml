@@ -105,20 +105,26 @@ jobs:
 
           if [ -z "$previous_tag" ]; then
             # If no previous tag, get all commits
-            commits=$(git log --oneline --no-merges --format="* %s" HEAD)
+            commits=$(git log --oneline --format="* %s" HEAD)
           else
             # Get commits since the last tag, excluding merge commits and version bumps
-            commits=$(git log --oneline --no-merges --format="* %s" ${previous_tag}..HEAD | grep -v "chore: bump version")
+            commits=$(git log --oneline --format="* %s" "${previous_tag}..HEAD")
           fi
 
+          # Filter out specific types of commits
+          filtered_commits=$(echo "$commits" | grep -Ev "^chore: bump version|^docs:|^refactor:" || true)
+
+          echo "Filtered commits:"
+          echo "$filtered_commits"
+
           # Create release body
-          if [ -z "$commits" ]; then
+          if [ -z "$filtered_commits" ]; then
             echo "body=No new commits in this release." >> $GITHUB_OUTPUT
           else
             {
               echo "## What's Changed"
               echo ""
-              echo "$commits"
+              echo "$filtered_commits"
             } > temp_release_notes.txt
             
             echo "body<<EOF" >> $GITHUB_OUTPUT
