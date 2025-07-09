@@ -102,14 +102,18 @@ jobs:
           
           # Create release body
           if [ -z "$commits" ]; then
-            body="No new commits in this release."
+            echo "body=No new commits in this release." >> $GITHUB_OUTPUT
           else
-            body="## What's Changed\n\n$commits"
+            {
+              echo "## What's Changed"
+              echo ""
+              echo "$commits"
+            } > temp_release_notes.txt
+            
+            echo "body<<EOF" >> $GITHUB_OUTPUT
+            cat temp_release_notes.txt >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
           fi
-          
-          echo "body<<EOF" >> $GITHUB_OUTPUT
-          echo "$body" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         env:
