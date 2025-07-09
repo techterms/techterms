@@ -91,7 +91,7 @@ jobs:
         run: |
           # Get the previous tag
           previous_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          
+
           if [ -z "$previous_tag" ]; then
             # If no previous tag, get all commits
             commits=$(git log --oneline --no-merges --format="* %s" HEAD)
@@ -99,7 +99,7 @@ jobs:
             # Get commits since the last tag, excluding merge commits and version bumps
             commits=$(git log --oneline --no-merges --format="* %s" ${previous_tag}..HEAD | grep -v "chore: bump version")
           fi
-          
+
           # Create release body
           if [ -z "$commits" ]; then
             echo "body=No new commits in this release." >> $GITHUB_OUTPUT
