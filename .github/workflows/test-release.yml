@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    branches: ['feature/improve-release-information']
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+env:
+  BUILD_PATH: '.'
+
+jobs:
+  test-release:
+    name: Test Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          # Get the previous tag
+          previous_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          
+          if [ -z "$previous_tag" ]; then
+            # If no previous tag, get all commits
+            commits=$(git log --oneline --no-merges --format="* %s" HEAD)
+          else
+            # Get commits since the last tag, excluding merge commits and version bumps
+            commits=$(git log --oneline --no-merges --format="* %s" ${previous_tag}..HEAD | grep -v "chore: bump version")
+          fi
+          
+          # Create release body
+          if [ -z "$commits" ]; then
+            body="No new commits in this release."
+          else
+            body="## What's Changed\n\n$commits"
+          fi
+          
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          echo "$body" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Show Release Body
+        run: |
+          echo "== Release Body =="
+          echo "${{ steps.release_notes.outputs.body }}"
+
