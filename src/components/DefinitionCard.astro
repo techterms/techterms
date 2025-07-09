@@ -9,13 +9,26 @@ const { definition } = Astro.props;
 ---
 
 <div data-type="definition-card" class="rounded-lg bg-white p-4 shadow-md">
-  <p class="mb-4 text-sm text-gray-600">
-    {
-      definition.categories.map(category => (
-        <span class="mr-2 rounded-md bg-green-500 px-2 py-1 text-sm text-white">{category}</span>
-      ))
-    }
-  </p>
+  <div class="mb-4 flex items-center justify-between">
+    <p class="text-sm text-gray-600">
+      {
+        definition.categories.map(category => (
+          <span class="mr-2 rounded-md bg-green-500 px-2 py-1 text-sm text-white">{category}</span>
+        ))
+      }
+    </p>
+
+    <button
+      type="button"
+      data-type="share-on-x-button"
+      data-definition-id={definition.id}
+      data-definition-term={definition.term}
+      data-definition-explanation={definition.explanation}
+      class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+    >
+      <img src="/src/assets/twitterx.svg" alt="Share on X" class="h-4 w-4" />
+    </button>
+  </div>
 
   <h2 data-type="definition-term" class="mb-2 text-lg font-bold">
     <a href={`/t/${definition.id}`} class="text-black hover:text-blue-900">{definition.term}</a>
