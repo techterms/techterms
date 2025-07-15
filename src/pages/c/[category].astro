@@ -8,6 +8,7 @@ import Header from '../../components/Header.astro';
 import Headline from '../../components/Headline.astro';
 import Search from '../../components/Search.astro';
 import Sidebar from '../../components/Sidebar.astro';
+import MobileSidebar from '../../components/MobileSidebar.astro';
 import StatsCard from '../../components/StatsCard.astro';
 import Layout from '../../layouts/Layout.astro';
 import { Categories } from '../../models/Categories';
@@ -39,6 +40,7 @@ const tags = [category, 'technology', 'definitions', 'tech terms'];
   tags={tags}
 >
   <Header />
+  <MobileSidebar activeCategory={category} />
   <main class="flex min-h-screen">
     <Sidebar activeCategory={category} />
 
@@ -61,3 +63,4 @@ const tags = [category, 'technology', 'definitions', 'tech terms'];
 </Layout>
 
 <script src="/src/scripts/share.ts"></script>
+<script src="/src/scripts/mobile-sidebar.ts"></script>

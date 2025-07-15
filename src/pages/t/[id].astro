@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import DefinitionCard from '../../components/DefinitionCard.astro';
 import Header from '../../components/Header.astro';
 import Sidebar from '../../components/Sidebar.astro';
+import MobileSidebar from '../../components/MobileSidebar.astro';
 import Headline from '../../components/Headline.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -39,6 +40,7 @@ const tags = [definition.term, ...definition.categories, 'technology', 'definiti
   tags={tags}
 >
   <Header />
+  <MobileSidebar />
   <main class="flex min-h-screen">
     <Sidebar />
 
@@ -55,3 +57,4 @@ const tags = [definition.term, ...definition.categories, 'technology', 'definiti
 </Layout>
 
 <script src="/src/scripts/share.ts"></script>
+<script src="/src/scripts/mobile-sidebar.ts"></script>

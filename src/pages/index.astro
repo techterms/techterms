@@ -9,6 +9,7 @@ import Header from '../components/Header.astro';
 import Headline from '../components/Headline.astro';
 import Search from '../components/Search.astro';
 import Sidebar from '../components/Sidebar.astro';
+import MobileSidebar from '../components/MobileSidebar.astro';
 import StatsCard from '../components/StatsCard.astro';
 
 import { definitions } from '../data/definitions';
@@ -16,6 +17,7 @@ import { definitions } from '../data/definitions';
 
 <Layout>
   <Header />
+  <MobileSidebar />
   <main class="flex min-h-screen">
     <Sidebar />
 
@@ -38,3 +40,4 @@ import { definitions } from '../data/definitions';
 </Layout>
 
 <script src="/src/scripts/share.ts"></script>
+<script src="/src/scripts/mobile-sidebar.ts"></script>
