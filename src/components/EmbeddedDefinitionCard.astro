@@ -1,0 +1,35 @@
+---
+import type { Definition } from '../models/Definition';
+
+interface Props {
+  definition: Definition;
+}
+
+const { definition } = Astro.props;
+const domain = Astro.site || 'https://techterms.io';
+---
+
+<div data-type="definition-card" class="w-full p-4">
+  <h2 data-type="definition-term" class="mb-4 text-lg font-bold">
+    <a href={`${domain}/t/${definition.id}`} class="text-black hover:text-blue-900"
+      >{definition.term}</a
+    >
+  </h2>
+
+  <p class="mb-4 text-sm text-gray-600">{definition.explanation}</p>
+
+  <p class="mb-4 text-sm text-gray-600">
+    <span class="font-bold">{definition.categories.length > 1 ? 'Categories:' : 'Category:'}</span>
+    {
+      definition.categories.map(category => (
+        <a href={`${domain}/c/${category}`} target="_blank" rel="noopener noreferrer">
+          <span class="mr-2 rounded-md bg-green-500 px-2 py-1 text-sm text-white">{category}</span>
+        </a>
+      ))
+    }
+  </p>
+
+  <p class="text-sm text-gray-600">
+    <a href={domain} class="text-sm text-gray-600">🔗 TechTerms.io</a>
+  </p>
+</div>
