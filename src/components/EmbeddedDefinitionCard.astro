@@ -1,0 +1,71 @@
+---
+import type { Definition } from '../models/Definition';
+import BlueskyIcon from '../assets/bluesky.svg';
+import TwitterIcon from '../assets/twitterx.svg';
+
+interface Props {
+  definition: Definition;
+}
+
+const { definition } = Astro.props;
+---
+
+<div data-type="definition-card" class="w-full p-4">
+  <div class="mb-4 flex items-center justify-between">
+    <p class="text-sm text-gray-600">
+      {
+        definition.categories.map(category => (
+          <span class="mr-2 rounded-md bg-green-500 px-2 py-1 text-sm text-white">{category}</span>
+        ))
+      }
+    </p>
+
+    <div>
+      <button
+        type="button"
+        data-type="share-on-bsky-button"
+        data-definition-id={definition.id}
+        data-definition-term={definition.term}
+        data-definition-explanation={definition.explanation}
+        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+      >
+        <img src={BlueskyIcon.src} alt="Share on Bluesky" class="h-4 w-4" />
+      </button>
+
+      <button
+        type="button"
+        data-type="share-on-x-button"
+        data-definition-id={definition.id}
+        data-definition-term={definition.term}
+        data-definition-explanation={definition.explanation}
+        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+      >
+        <img src={TwitterIcon.src} alt="Share on Twitter" class="h-4 w-4" />
+      </button>
+    </div>
+  </div>
+
+  <h2 data-type="definition-term" class="mb-2 text-lg font-bold">
+    <a href={`/t/${definition.id}`} class="text-black hover:text-blue-900">{definition.term}</a>
+  </h2>
+  <p data-type="definition-explanation" class="text-sm text-gray-600">{definition.explanation}</p>
+
+  <hr class="my-4 border-gray-200" />
+
+  {
+    definition.related && definition.related.length > 0 && (
+      <>
+        <p class="text-sm font-bold">Related:</p>
+        <ul class="list-inside list-disc">
+          {definition.related.map(related => (
+            <li>
+              <a href={related} class="text-sm text-blue-500 hover:text-blue-700">
+                {related}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</div>
