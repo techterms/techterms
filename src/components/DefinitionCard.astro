@@ -2,6 +2,7 @@
 import type { Definition } from '../models/Definition';
 import BlueskyIcon from '../assets/bluesky.svg';
 import TwitterIcon from '../assets/twitterx.svg';
+import CopyIcon from '../assets/copy.svg';
 
 interface Props {
   definition: Definition;
@@ -41,6 +42,17 @@ const { definition } = Astro.props;
         class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
       >
         <img src={TwitterIcon.src} alt="Share on Twitter" class="h-4 w-4" />
+      </button>
+
+      <button
+        type="button"
+        data-type="copy-to-clipboard-button"
+        data-definition-id={definition.id}
+        data-definition-term={definition.term}
+        data-definition-explanation={definition.explanation}
+        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+      >
+        <img src={CopyIcon.src} alt="Copy to clipboard" class="h-4 w-4" />
       </button>
     </div>
   </div>
