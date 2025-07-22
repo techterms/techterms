@@ -44,6 +44,7 @@ export default [
         NodeList: 'readonly',
         Element: 'readonly',
         Node: 'readonly',
+        navigator: 'readonly',
         window: 'readonly',
         setTimeout: 'readonly',
       },
