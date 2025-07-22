@@ -3,6 +3,7 @@ import type { Definition } from '../models/Definition';
 import BlueskyIcon from '../assets/bluesky.svg';
 import TwitterIcon from '../assets/twitterx.svg';
 import CopyIcon from '../assets/copy.svg';
+import EmbedIcon from '../assets/embed.svg';
 
 interface Props {
   definition: Definition;
@@ -22,6 +23,17 @@ const { definition } = Astro.props;
     </p>
 
     <div>
+      <button
+        type="button"
+        data-type="share-embed-button"
+        data-definition-id={definition.id}
+        data-definition-term={definition.term}
+        data-definition-explanation={definition.explanation}
+        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+      >
+        <img src={EmbedIcon.src} alt="Share embed" class="h-4 w-4" />
+      </button>
+
       <button
         type="button"
         data-type="share-on-bsky-button"
