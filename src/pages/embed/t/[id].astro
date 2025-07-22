@@ -1,0 +1,40 @@
+---
+import '../../../styles/global.css';
+import Layout from '../../../layouts/Layout.astro';
+import EmbeddedDefinitionCard from '../../../components/EmbeddedDefinitionCard.astro';
+
+import { definitions } from '../../../data/definitions';
+
+export function getStaticPaths() {
+  const definitionIds = definitions.map(definition => definition.id);
+  return definitionIds.map(id => ({ params: { id } }));
+}
+
+const { id } = Astro.params;
+const definition = definitions.find(definition => definition.id === id);
+if (!definition) {
+  throw new Error('Definition not found!');
+}
+
+// SEO properties for the term page
+const title = `${definition.term} - Simple Explanations of Common Tech Terms & Concepts | Tech Terms`;
+const description =
+  definition.explanation.length > 160
+    ? definition.explanation.substring(0, 157) + '...'
+    : definition.explanation;
+const canonical = new URL(`/t/${id}`, Astro.site || 'https://techterms.io').href;
+const tags = [definition.term, ...definition.categories, 'technology', 'definition'];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  type="article"
+  section="Technology Definitions"
+  tags={tags}
+>
+  <EmbeddedDefinitionCard definition={definition} />
+</Layout>
+
+<script src="/src/scripts/share.ts"></script>
