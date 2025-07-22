@@ -1,14 +1,9 @@
 ---
-import '../../styles/global.css';
-import Layout from '../../layouts/Layout.astro';
-import DefinitionCard from '../../components/DefinitionCard.astro';
-import Header from '../../components/Header.astro';
-import Sidebar from '../../components/Sidebar.astro';
-import MobileSidebar from '../../components/MobileSidebar.astro';
-import Headline from '../../components/Headline.astro';
-import Footer from '../../components/Footer.astro';
+import '../../../styles/global.css';
+import Layout from '../../../layouts/Layout.astro';
+import EmbeddedDefinitionCard from '../../../components/EmbeddedDefinitionCard.astro';
 
-import { definitions } from '../../data/definitions';
+import { definitions } from '../../../data/definitions';
 
 export function getStaticPaths() {
   const definitionIds = definitions.map(definition => definition.id);
@@ -39,23 +34,7 @@ const tags = [definition.term, ...definition.categories, 'technology', 'definiti
   section="Technology Definitions"
   tags={tags}
 >
-  <Header />
-  <MobileSidebar />
-  <main class="flex min-h-screen">
-    <Sidebar />
-
-    <div class="flex-1 overflow-auto">
-      <Headline />
-
-      <div class="container mx-auto px-8 py-8">
-        <DefinitionCard definition={definition} />
-      </div>
-
-      <Footer />
-    </div>
-  </main>
+  <EmbeddedDefinitionCard definition={definition} />
 </Layout>
 
-<script src="/src/scripts/clipboard.ts"></script>
 <script src="/src/scripts/share.ts"></script>
-<script src="/src/scripts/mobile-sidebar.ts"></script>
