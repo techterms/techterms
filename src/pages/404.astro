@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MobileSidebar from '../components/MobileSidebar.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+
+<Layout
+  title="Page Not Found - Tech Terms"
+  description="Sorry, we couldn't find the page you're looking for. Explore our tech glossary to find the definitions you need."
+>
+  <Header />
+  <MobileSidebar />
+  <main class="flex min-h-screen">
+    <Sidebar />
+
+    <div class="flex-1 overflow-auto">
+      <div class="container mx-auto px-8 py-16">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="mb-4 text-lg font-semibold text-gray-900">404</h2>
+          <h2 class="mb-4 text-lg font-semibold text-gray-900">Page Not Found</h2>
+          <p class="mb-12 text-lg text-gray-600">
+            Sorry, we couldn't find the page you're looking for. The page might have been moved,
+            deleted, or the URL might be incorrect.
+          </p>
+
+          <a
+            href="/"
+            class="inline-flex items-center justify-center rounded-lg border border-gray-200 px-3 py-2 text-left text-gray-700 transition-colors duration-200 hover:cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+          >
+            <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Go Home
+          </a>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  </main>
+</Layout>
+
+<script src="/src/scripts/mobile-sidebar.ts"></script>
