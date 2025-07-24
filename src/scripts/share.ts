@@ -62,7 +62,32 @@ function initBlueSkyShare() {
   });
 }
 
+function getEmbedCode(definitionId: string) {
+  return `<iframe src="${BASE_URL}/embed/t/${definitionId}" width="100%" height="180" frameborder="0" allowfullscreen></iframe>`;
+}
+
+function initEmbedShare() {
+  const buttons = document.querySelectorAll('[data-type="share-embed-button"]');
+  if (!buttons || buttons.length === 0) {
+    return;
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const definitionId = button.getAttribute('data-definition-id')?.trim();
+
+      if (!definitionId) {
+        return;
+      }
+
+      const embedCode = getEmbedCode(definitionId);
+      navigator.clipboard.writeText(embedCode);
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTwitterShare();
   initBlueSkyShare();
+  initEmbedShare();
 });

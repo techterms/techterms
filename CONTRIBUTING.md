@@ -43,6 +43,17 @@ npm run lint:fix
 
 - Include a short description, link to the issue and add screenshots if needed.
 
+### Commit Message Format
+
+Please use the following conventional commit prefixes when making contributions:
+
+- `feat:` for new features (e.g., `feat: add search functionality`)
+- `fix:` for bug fixes (e.g., `fix: correct typo in term definition`)
+- `chore:` for maintenance tasks (e.g., `chore: update dependencies`)
+- `refactor:` for code refactoring that doesn't change functionality (e.g., `refactor: simplify term card component`)
+
+This helps us keep the project history clean and readable.
+
 ## 📜 License
 
 By contributing, you agree that your contributions will be licensed under the MIT License, the same license as this project.
