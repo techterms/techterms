@@ -22,7 +22,7 @@ if (!definition) {
 }
 
 // SEO properties for the term page
-const title = `${definition.term} - Simple Explanations of Common Tech Terms & Concepts | Tech Terms`;
+const title = `${definition.term} - ${definition.explanation} | Tech Terms`;
 const description =
   definition.explanation.length > 160
     ? definition.explanation.substring(0, 157) + '...'
