@@ -1,3 +1,35 @@
-<div>
-  <!-- Headline -->
-</div>
+---
+import { definitions } from '../data/definitions';
+const usedCategories = [...new Set(definitions.flatMap(def => def.categories))];
+---
+
+<section
+  class="relative border-b border-gray-200 bg-gradient-to-r from-slate-50 to-blue-50 px-4 py-12 text-center"
+>
+  <div class="z-10 mx-auto max-w-4xl">
+    <h1 class="mb-3 text-3xl font-bold text-gray-900 md:text-4xl">
+      <span class="gradient-text">Tech Terms</span> Explained Simply
+    </h1>
+
+    <p class="mx-auto max-w-2xl text-base text-gray-600 md:text-lg">
+      A beginner-friendly glossary built by the community, for the community
+    </p>
+
+    <div
+      class="mt-4 flex flex-col gap-3 text-sm text-gray-500 sm:flex-row sm:justify-center sm:gap-6 md:text-base"
+    >
+      <span class="flex items-center justify-center gap-2 sm:gap-1">
+        <div class="h-2 w-2 rounded-full bg-blue-500"></div>
+        {definitions.length} Terms - {usedCategories.length} Categories
+      </span>
+      <span class="flex items-center justify-center gap-2 sm:gap-1">
+        <div class="h-2 w-2 rounded-full bg-green-500"></div>
+        Community Verified
+      </span>
+      <span class="flex items-center justify-center gap-2 sm:gap-1">
+        <div class="h-2 w-2 rounded-full bg-purple-500"></div>
+        100% Free and Open Source
+      </span>
+    </div>
+  </div>
+</section>
