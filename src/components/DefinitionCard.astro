@@ -3,6 +3,7 @@ import type { Definition } from '../models/Definition';
 import BlueskyIcon from '../assets/bluesky.svg';
 import TwitterIcon from '../assets/twitterx.svg';
 import CopyIcon from '../assets/copy.svg';
+import LinkIcon from '../assets/link.svg';
 import EmbedIcon from '../assets/embed.svg';
 
 interface Props {
@@ -12,16 +13,23 @@ interface Props {
 const { definition } = Astro.props;
 ---
 
-<div data-type="definition-card" class="rounded-lg bg-white p-4 shadow-md">
+<div data-type="definition-card" class="border-l-4 border-green-500 bg-white px-8 py-4">
   <div class="mb-4 flex items-center justify-between">
-    <p class="text-sm text-gray-600">
-      {
-        definition.categories.map(category => (
-          <span class="mr-2 rounded-md bg-green-500 px-2 py-1 text-sm text-white">{category}</span>
-        ))
-      }
-    </p>
+    <div class="flex items-center gap-4">
+      <h2 data-type="definition-term" class="inline text-2xl font-bold">
+        <a href={`/t/${definition.id}`} class="text-black hover:text-blue-900">{definition.term}</a>
+      </h2>
 
+      <p class="text-sm text-gray-600">
+        {
+          definition.categories.map(category => (
+            <span class="text-medium mr-2 rounded-full bg-gradient-to-br from-green-50 to-green-100 px-3 py-1 text-green-700">
+              {category}
+            </span>
+          ))
+        }
+      </p>
+    </div>
     <div>
       <button
         type="button"
@@ -67,27 +75,18 @@ const { definition } = Astro.props;
     </div>
   </div>
 
-  <h2 data-type="definition-term" class="mb-2 text-lg font-bold">
-    <a href={`/t/${definition.id}`} class="text-black hover:text-blue-900">{definition.term}</a>
-  </h2>
-  <p data-type="definition-explanation" class="text-sm text-gray-600">{definition.explanation}</p>
-
-  <hr class="my-4 border-gray-200" />
+  <p data-type="definition-explanation" class="text-lg text-gray-600">{definition.explanation}</p>
 
   {
     definition.related && definition.related.length > 0 && (
-      <>
-        <p class="text-sm font-bold">Related:</p>
-        <ul class="list-inside list-disc">
-          {definition.related.map(related => (
-            <li>
-              <a href={related} class="text-sm text-blue-500 hover:text-blue-700">
-                {related}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </>
+      <p class="mt-4 flex items-center text-sm text-gray-600">
+        <img src={LinkIcon.src} alt="Link" class="mr-4 inline h-4 w-4" />
+        {definition.related.map(related => (
+          <a href={related} class="mr-4 text-sm text-blue-500 hover:text-blue-700">
+            {related}
+          </a>
+        ))}
+      </p>
     )
   }
 </div>
