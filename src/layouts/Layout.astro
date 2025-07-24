@@ -1,5 +1,6 @@
 ---
 import Analytics from '../components/Analytics.astro';
+import PreviewImage from '../assets/preview.png';
 
 export interface Props {
   title?: string;
@@ -23,7 +24,7 @@ const {
   modifiedTime,
   author = 'Tech Terms Community',
   section,
-  image,
+  image = PreviewImage.src, // Default social media preview image
   tags = [
     'tech glossary',
     'technology terms',
