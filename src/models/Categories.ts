@@ -7,6 +7,13 @@ export enum Categories {
   'SoftwareArchitecture' = 'software-architecture',
   'Database' = 'database',
   'SoftwareEngineering' = 'software-engineering',
+  'Frontend' = 'frontend',
+  'Backend' = 'backend',
+  'Security' = 'security',
+  'ContentCreation' = 'content-creation',
+  'Platforms' = 'platforms',
+  'Internet' = 'internet',
+  'Startup' = 'startup',
 }
 
 type CategoryMetadata = {
@@ -31,6 +38,27 @@ export const CategoriesMetadata: Record<Categories, CategoryMetadata> = {
   },
   [Categories.SoftwareEngineering]: {
     label: 'Software Engineering',
+  },
+  [Categories.Frontend]: {
+    label: 'Frontend',
+  },
+  [Categories.Backend]: {
+    label: 'Backend',
+  },
+  [Categories.Security]: {
+    label: 'Security',
+  },
+  [Categories.ContentCreation]: {
+    label: 'Content Creation',
+  },
+  [Categories.Platforms]: {
+    label: 'Platforms',
+  },
+  [Categories.Internet]: {
+    label: 'Internet',
+  },
+  [Categories.Startup]: {
+    label: 'Startup',
   },
 };
 
