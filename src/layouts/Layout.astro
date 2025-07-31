@@ -131,5 +131,12 @@ const siteUrl = 'https://techterms.io';
   <body class="min-h-screen">
     <slot />
     <Analytics />
+    <div
+      id="toast"
+      class="pointer-events-none fixed right-4 bottom-4 z-50 rounded bg-blue-600 px-4 py-2 text-white opacity-0 shadow-lg transition-opacity duration-300"
+    >
+      Copied to clipboard!
+    </div>
+    <script src="/src/scripts/clipboard.ts"></script>
   </body>
 </html>
