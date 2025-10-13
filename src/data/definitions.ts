@@ -27,7 +27,11 @@ export const definitions: Definition[] = [
     explanation:
       'A distributed version control system that tracks changes in source code during software development.',
     categories: [Categories.VersionControl, Categories.DevOps],
-    related: ['https://git-scm.com/', 'https://github.com/'],
+    related: [
+      'https://git-scm.com/',
+      'https://github.com/',
+      'https://markodenic.tech/git-cheat-sheet/',
+    ],
   },
   {
     id: 'docker',
@@ -159,7 +163,10 @@ export const definitions: Definition[] = [
     explanation:
       'CSS (Cascading Style Sheets) is what makes websites look nice. It controls things like colors, fonts, spacing, and layout. HTML is the structure of the page, and CSS is the style.',
     categories: [Categories.WebDevelopment, Categories.Frontend, Categories.SoftwareEngineering],
-    related: ['https://developer.mozilla.org/en-US/docs/Web/CSS'],
+    related: [
+      'https://developer.mozilla.org/en-US/docs/Web/CSS',
+      'https://markodenic.com/css-tutorial/',
+    ],
   },
   {
     id: 'open-source',
