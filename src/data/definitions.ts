@@ -302,4 +302,12 @@ export const definitions: Definition[] = [
     categories: [Categories.Startup],
     related: [],
   },
+  {
+    id: 'markdown',
+    term: 'Markdown',
+    explanation:
+      "Markdown is a simple way to format text. It uses plain text with special characters to create headings, lists, and other formatting. It's easy to read and write, and it's often used to create README files, blog posts, and other documents.",
+    categories: [Categories.SoftwareEngineering],
+    related: ['https://www.markdownguide.org/'],
+  },
 ];
