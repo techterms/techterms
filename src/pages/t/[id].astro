@@ -7,6 +7,7 @@ import Sidebar from '../../components/Sidebar.astro';
 import MobileSidebar from '../../components/MobileSidebar.astro';
 import Headline from '../../components/Headline.astro';
 import Footer from '../../components/Footer.astro';
+import ToastNotifications from '../../components/ToastNotifications.astro';
 
 import { definitions } from '../../data/definitions';
 
@@ -54,6 +55,8 @@ const tags = [definition.term, ...definition.categories, 'technology', 'definiti
       <Footer />
     </div>
   </main>
+
+  <ToastNotifications />
 </Layout>
 
 <script src="/src/scripts/clipboard.ts"></script>

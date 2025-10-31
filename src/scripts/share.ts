@@ -1,3 +1,5 @@
+import { showToast } from './toast';
+
 const BASE_URL = 'https://techterms.io';
 
 function getText(definitionTerm: string, definitionExplanation: string) {
@@ -73,15 +75,22 @@ function initEmbedShare() {
   }
 
   buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const definitionId = button.getAttribute('data-definition-id')?.trim();
+    button.addEventListener('click', async () => {
+      try {
+        const definitionId = button.getAttribute('data-definition-id')?.trim();
 
-      if (!definitionId) {
-        return;
+        if (!definitionId) {
+          return;
+        }
+
+        const embedCode = getEmbedCode(definitionId);
+        await navigator.clipboard.writeText(embedCode);
+
+        showToast('Copied to Clipboard!');
+      } catch (err) {
+        showToast('Failed to copy to clipboard');
+        console.error(err);
       }
-
-      const embedCode = getEmbedCode(definitionId);
-      navigator.clipboard.writeText(embedCode);
     });
   });
 }

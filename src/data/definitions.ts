@@ -204,6 +204,22 @@ export const definitions: Definition[] = [
     ],
   },
   {
+    id: 'horizontal-scaling',
+    term: 'Horizontal Scaling',
+    explanation:
+      "Horizontal scaling is a way to increase the capacity of a system by adding more servers to handle the load. It's like adding more workers to a factory to produce more products.",
+    categories: [Categories.DevOps],
+    related: ['https://en.wikipedia.org/wiki/Scalability'],
+  },
+  {
+    id: 'vertical-scaling',
+    term: 'Vertical Scaling',
+    explanation:
+      "Vertical scaling is a way to increase the capacity of a system by adding more resources to a single server. It's like adding more power to a single machine to produce more products.",
+    categories: [Categories.DevOps],
+    related: ['https://en.wikipedia.org/wiki/Scalability'],
+  },
+  {
     id: '2fa',
     term: 'Two-Factor Authentication (2FA)',
     explanation:
@@ -287,6 +303,14 @@ export const definitions: Definition[] = [
     related: ['https://www.cloudflare.com/en-gb/learning/dns/glossary/what-is-a-domain-name/'],
   },
   {
+    id: 'subdomain',
+    term: 'Subdomain',
+    explanation:
+      'A subdomain is a part of a larger domain name, used to organize and separate different sections of a website.',
+    categories: [Categories.Internet],
+    related: ['https://en.wikipedia.org/wiki/Subdomain'],
+  },
+  {
     id: 'indie-maker',
     term: 'Indie Maker',
     explanation:
@@ -303,11 +327,123 @@ export const definitions: Definition[] = [
     related: [],
   },
   {
+    id: 'arr',
+    term: 'ARR (Annual Recurring Revenue)',
+    explanation:
+      "ARR is how much money a business makes every year from subscriptions. If 10 people pay $10/month for your app, your ARR is $1200. It's a helpful way to track steady income.",
+    categories: [Categories.Startup],
+    related: [],
+  },
+  {
+    id: 'mvp',
+    term: 'MVP (Minimum Viable Product)',
+    explanation:
+      "MVP is a version of a product with just enough features to be useful to users. It's like a prototype that you can use to test your idea and get feedback from users.",
+    categories: [Categories.Startup],
+    related: [],
+  },
+  {
+    id: 'saas',
+    term: 'SaaS (Software as a Service)',
+    explanation:
+      "SaaS is a way to provide software to users over the internet. It's like a subscription to a software, where you pay a monthly or yearly fee to use the software.",
+    categories: [Categories.Startup],
+    related: [],
+  },
+  {
+    id: 'no-code',
+    term: 'No-Code',
+    explanation:
+      "No-Code is a way to build software without writing code. It's like using a visual editor to create a website or app.",
+    categories: [Categories.SoftwareEngineering],
+    related: ['https://en.wikipedia.org/wiki/No-code_development_platform'],
+  },
+  {
     id: 'markdown',
     term: 'Markdown',
     explanation:
       "Markdown is a simple way to format text. It uses plain text with special characters to create headings, lists, and other formatting. It's easy to read and write, and it's often used to create README files, blog posts, and other documents.",
     categories: [Categories.SoftwareEngineering],
     related: ['https://www.markdownguide.org/'],
+  },
+  {
+    id: 'mcp',
+    term: 'MCP (Model Context Protocol)',
+    explanation:
+      'The Model Context Protocol (MCP) is a universal standard that lets AI systems use tools and interact with external applications, databases, and APIs through a common framework.',
+    categories: [Categories.AI],
+    related: ['https://modelcontextprotocol.io/docs/getting-started/intro'],
+  },
+  {
+    id: 'mcp-server',
+    term: 'MCP Server',
+    explanation:
+      'An MCP server is a system that implements the Model Context Protocol, managing and routing requests between an AI and external tools, applications, or data sources so the AI can use them through a common interface.',
+    categories: [Categories.AI],
+    related: ['https://modelcontextprotocol.io/docs/getting-started/intro'],
+  },
+  {
+    id: 'llm',
+    term: 'LLM (Large Language Model)',
+    explanation:
+      'A large language model (LLM) is an AI trained on vast amounts of text to understand meaning, context, and patterns in language, allowing it to generate useful, human-readable responses.',
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Large_language_model'],
+  },
+  {
+    id: 'llm-context',
+    term: 'LLM Context',
+    explanation:
+      "The context is the information that is provided to the LLM to help it generate a response. It can include the previous messages in the conversation, the user's intent, and the relevant information from the user's profile.",
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Large_language_model'],
+  },
+  {
+    id: 'llm-prompt',
+    term: 'LLM Prompt',
+    explanation:
+      'An LLM prompt is the input or instruction given to a large language model that tells it what to do or generate, such as answering a question, writing text, or analyzing information.',
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Large_language_model'],
+  },
+  {
+    id: 'ai-agent',
+    term: 'AI Agent',
+    explanation:
+      'An AI agent is a software system that uses AI to perform tasks or make decisions, often in a way that is similar to how humans would. They can be used to automate repetitive tasks, provide recommendations, or even make decisions in real-time.',
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Agent_(computing)'],
+  },
+  {
+    id: 'database',
+    term: 'Database',
+    explanation:
+      "A database is a collection of structured data stored in a computer system. It's like a library where you can store and organize information in a way that makes it easy to find and use.",
+    categories: [Categories.Backend],
+    related: ['https://en.wikipedia.org/wiki/Database'],
+  },
+  {
+    id: 'relational-database',
+    term: 'Relational Database',
+    explanation:
+      'A relational database is a type of database that stores data in a structured way, using tables and relationships between them.',
+    categories: [Categories.Backend],
+    related: ['https://en.wikipedia.org/wiki/Relational_database'],
+  },
+  {
+    id: 'sql',
+    term: 'SQL',
+    explanation:
+      "SQL is a programming language used to manage and manipulate databases. It's like a way to talk to a database and tell it what to do.",
+    categories: [Categories.Backend],
+    related: ['https://en.wikipedia.org/wiki/SQL'],
+  },
+  {
+    id: 'icp',
+    term: 'ICP (Ideal Customer Profile)',
+    explanation:
+      "ICP is a profile of the ideal customer for a product or service. It's like a description of the perfect customer for a product or service.",
+    categories: [Categories.Startup, Categories.Sales, Categories.Marketing],
+    related: [],
   },
 ];
