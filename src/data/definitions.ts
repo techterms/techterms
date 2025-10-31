@@ -319,6 +319,14 @@ export const definitions: Definition[] = [
     related: ['https://modelcontextprotocol.io/docs/getting-started/intro'],
   },
   {
+    id: 'mcp-server',
+    term: 'MCP Server',
+    explanation:
+      'An MCP server is a system that implements the Model Context Protocol, managing and routing requests between an AI and external tools, applications, or data sources so the AI can use them through a common interface.',
+    categories: [Categories.AI],
+    related: ['https://modelcontextprotocol.io/docs/getting-started/intro'],
+  },
+  {
     id: 'llm',
     term: 'LLM (Large Language Model)',
     explanation:
