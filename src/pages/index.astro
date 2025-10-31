@@ -11,6 +11,7 @@ import Search from '../components/Search.astro';
 import Sidebar from '../components/Sidebar.astro';
 import MobileSidebar from '../components/MobileSidebar.astro';
 import StatsCard from '../components/StatsCard.astro';
+import ToastNotifications from '../components/ToastNotifications.astro';
 
 import { definitions } from '../data/definitions';
 ---
@@ -37,6 +38,8 @@ import { definitions } from '../data/definitions';
       <Footer />
     </div>
   </main>
+
+  <ToastNotifications />
 </Layout>
 
 <script src="/src/scripts/clipboard.ts"></script>
