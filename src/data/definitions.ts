@@ -367,6 +367,54 @@ export const definitions: Definition[] = [
     related: ['https://www.markdownguide.org/'],
   },
   {
+    id: 'mcp',
+    term: 'MCP (Model Context Protocol)',
+    explanation:
+      'The Model Context Protocol (MCP) is a universal standard that lets AI systems use tools and interact with external applications, databases, and APIs through a common framework.',
+    categories: [Categories.AI],
+    related: ['https://modelcontextprotocol.io/docs/getting-started/intro'],
+  },
+  {
+    id: 'mcp-server',
+    term: 'MCP Server',
+    explanation:
+      'An MCP server is a system that implements the Model Context Protocol, managing and routing requests between an AI and external tools, applications, or data sources so the AI can use them through a common interface.',
+    categories: [Categories.AI],
+    related: ['https://modelcontextprotocol.io/docs/getting-started/intro'],
+  },
+  {
+    id: 'llm',
+    term: 'LLM (Large Language Model)',
+    explanation:
+      'A large language model (LLM) is an AI trained on vast amounts of text to understand meaning, context, and patterns in language, allowing it to generate useful, human-readable responses.',
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Large_language_model'],
+  },
+  {
+    id: 'llm-context',
+    term: 'LLM Context',
+    explanation:
+      "The context is the information that is provided to the LLM to help it generate a response. It can include the previous messages in the conversation, the user's intent, and the relevant information from the user's profile.",
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Large_language_model'],
+  },
+  {
+    id: 'llm-prompt',
+    term: 'LLM Prompt',
+    explanation:
+      'An LLM prompt is the input or instruction given to a large language model that tells it what to do or generate, such as answering a question, writing text, or analyzing information.',
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Large_language_model'],
+  },
+  {
+    id: 'ai-agent',
+    term: 'AI Agent',
+    explanation:
+      'An AI agent is a software system that uses AI to perform tasks or make decisions, often in a way that is similar to how humans would. They can be used to automate repetitive tasks, provide recommendations, or even make decisions in real-time.',
+    categories: [Categories.AI],
+    related: ['https://en.wikipedia.org/wiki/Agent_(computing)'],
+  },
+  {
     id: 'database',
     term: 'Database',
     explanation:
