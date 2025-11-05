@@ -5,6 +5,7 @@ import TwitterIcon from '../assets/twitterx.svg';
 import CopyIcon from '../assets/copy.svg';
 import LinkIcon from '../assets/link.svg';
 import EmbedIcon from '../assets/embed.svg';
+import ImageIcon from '../assets/image.svg';
 
 interface Props {
   definition: Definition;
@@ -71,6 +72,17 @@ const { definition } = Astro.props;
         class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
       >
         <img src={CopyIcon.src} alt="Copy to clipboard" class="h-4 w-4" />
+      </button>
+
+      <button
+        type="button"
+        data-type="create-image-button"
+        data-definition-id={definition.id}
+        data-definition-term={definition.term}
+        data-definition-explanation={definition.explanation}
+        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+      >
+        <img src={ImageIcon.src} alt="Create image" class="h-4 w-4" />
       </button>
     </div>
   </div>
