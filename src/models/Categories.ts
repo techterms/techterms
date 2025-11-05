@@ -17,6 +17,7 @@ export enum Categories {
   'AI' = 'ai',
   'Sales' = 'sales',
   'Marketing' = 'marketing',
+  'Events' = 'events',
 }
 
 type CategoryMetadata = {
@@ -71,6 +72,9 @@ export const CategoriesMetadata: Record<Categories, CategoryMetadata> = {
   },
   [Categories.Marketing]: {
     label: 'Marketing',
+  },
+  [Categories.Events]: {
+    label: 'Events',
   },
 };
 

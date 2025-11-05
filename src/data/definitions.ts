@@ -446,4 +446,28 @@ export const definitions: Definition[] = [
     categories: [Categories.Startup, Categories.Sales, Categories.Marketing],
     related: [],
   },
+  {
+    id: 'websockets',
+    term: 'WebSockets',
+    explanation:
+      'A way for websites and servers to have a two-way conversation in real-time. Unlike regular web requests where you have to keep asking "any updates?", WebSockets keep the connection open so updates can be sent instantly. ',
+    categories: [Categories.WebDevelopment],
+    related: ['https://en.wikipedia.org/wiki/WebSocket'],
+  },
+  {
+    id: 'hacktoberfest',
+    term: 'Hacktoberfest',
+    explanation:
+      "A month-long celebration of open source every October. Developers contribute to open source projects on GitHub, and if you make enough quality contributions, you can earn rewards. It's a great way to get started with open source.",
+    categories: [Categories.Events],
+    related: ['https://hacktoberfest.com/'],
+  },
+  {
+    id: 'ai-slop',
+    term: 'AI Slop',
+    explanation:
+      'Low-effort, mass-produced content cranked out by AI with little quality control. Think generic blog posts, repetitive social media content, or weird AI-generated images flooding the internet.',
+    categories: [Categories.AI, Categories.ContentCreation],
+    related: ['https://en.wikipedia.org/wiki/AI_slop'],
+  },
 ];
