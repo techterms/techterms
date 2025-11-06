@@ -5,6 +5,7 @@ import TwitterIcon from '../assets/twitterx.svg';
 import CopyIcon from '../assets/copy.svg';
 import LinkIcon from '../assets/link.svg';
 import EmbedIcon from '../assets/embed.svg';
+import ImageIcon from '../assets/image.svg';
 
 interface Props {
   definition: Definition;
@@ -31,47 +32,93 @@ const { definition } = Astro.props;
       </p>
     </div>
     <div>
-      <button
-        type="button"
-        data-type="share-embed-button"
-        data-definition-id={definition.id}
-        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
-      >
-        <img src={EmbedIcon.src} alt="Share embed" class="h-4 w-4" />
-      </button>
+      <div class="group relative inline-block">
+        <button
+          type="button"
+          data-type="share-embed-button"
+          data-definition-id={definition.id}
+          class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+        >
+          <img src={EmbedIcon.src} alt="Share embed" class="h-4 w-4" />
+        </button>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-2 w-max max-w-xs -translate-x-1/2 rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100"
+        >
+          Copy embedding code
+        </span>
+      </div>
 
-      <button
-        type="button"
-        data-type="share-on-bsky-button"
-        data-definition-id={definition.id}
-        data-definition-term={definition.term}
-        data-definition-explanation={definition.explanation}
-        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
-      >
-        <img src={BlueskyIcon.src} alt="Share on Bluesky" class="h-4 w-4" />
-      </button>
+      <div class="group relative inline-block">
+        <button
+          type="button"
+          data-type="share-on-bsky-button"
+          data-definition-id={definition.id}
+          data-definition-term={definition.term}
+          data-definition-explanation={definition.explanation}
+          class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+        >
+          <img src={BlueskyIcon.src} alt="Share on Bluesky" class="h-4 w-4" />
+        </button>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-2 w-max max-w-xs -translate-x-1/2 rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100"
+        >
+          Share on Bluesky
+        </span>
+      </div>
 
-      <button
-        type="button"
-        data-type="share-on-x-button"
-        data-definition-id={definition.id}
-        data-definition-term={definition.term}
-        data-definition-explanation={definition.explanation}
-        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
-      >
-        <img src={TwitterIcon.src} alt="Share on Twitter" class="h-4 w-4" />
-      </button>
+      <div class="group relative inline-block">
+        <button
+          type="button"
+          data-type="share-on-x-button"
+          data-definition-id={definition.id}
+          data-definition-term={definition.term}
+          data-definition-explanation={definition.explanation}
+          class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+        >
+          <img src={TwitterIcon.src} alt="Share on Twitter" class="h-4 w-4" />
+        </button>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-2 w-max max-w-xs -translate-x-1/2 rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100"
+        >
+          Share on X
+        </span>
+      </div>
 
-      <button
-        type="button"
-        data-type="copy-to-clipboard-button"
-        data-definition-id={definition.id}
-        data-definition-term={definition.term}
-        data-definition-explanation={definition.explanation}
-        class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
-      >
-        <img src={CopyIcon.src} alt="Copy to clipboard" class="h-4 w-4" />
-      </button>
+      <div class="group relative inline-block">
+        <button
+          type="button"
+          data-type="copy-to-clipboard-button"
+          data-definition-id={definition.id}
+          data-definition-term={definition.term}
+          data-definition-explanation={definition.explanation}
+          class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+        >
+          <img src={CopyIcon.src} alt="Copy to clipboard" class="h-4 w-4" />
+        </button>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-2 w-max max-w-xs -translate-x-1/2 rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100"
+        >
+          Copy to clipboard
+        </span>
+      </div>
+
+      <div class="group relative inline-block">
+        <button
+          type="button"
+          data-type="create-image-button"
+          data-definition-id={definition.id}
+          data-definition-term={definition.term}
+          data-definition-explanation={definition.explanation}
+          class="rounded-md px-2 py-1 hover:cursor-pointer hover:bg-gray-100"
+        >
+          <img src={ImageIcon.src} alt="Create image" class="h-4 w-4" />
+        </button>
+        <span
+          class="pointer-events-none absolute bottom-full left-1/2 mb-2 w-max max-w-xs -translate-x-1/2 rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100"
+        >
+          Create image
+        </span>
+      </div>
     </div>
   </div>
 
