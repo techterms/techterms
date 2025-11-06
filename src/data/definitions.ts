@@ -470,4 +470,12 @@ export const definitions: Definition[] = [
     categories: [Categories.AI, Categories.ContentCreation],
     related: ['https://en.wikipedia.org/wiki/AI_slop'],
   },
+  {
+    id: 'utm',
+    term: 'UTM (Urchin Tracking Module)',
+    explanation:
+      'UTM (Urchin Tracking Module) parameters are small tags you add to a URL to track where website traffic comes from and how people interact with your marketing campaigns.',
+    categories: [Categories.Marketing],
+    related: ['https://en.wikipedia.org/wiki/UTM_parameters'],
+  },
 ];
