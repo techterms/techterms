@@ -26,6 +26,14 @@ TechTerms is an open-source glossary application that makes complex technical te
 - **Version Control**: Git workflows and best practices
 - **Database**: Data management and storage concepts
 
+## 📊 Analytics
+
+TechTerms uses privacy-first analytics to understand usage patterns. View our public analytics dashboard:
+
+- [View Analytics Dashboard](https://dashboard.simpleanalytics.com/techterms.io)
+
+This public dashboard provides insights into how the platform is being used and can be used for advertising purposes.
+
 ## 🛠️ Tech Stack
 
 TechTerms is built with a minimal, beginner-friendly tech stack:
@@ -98,13 +106,6 @@ Adding new tech terms is easy! Here's how:
 
 2. **Choose categories**
    Available categories are defined in `src/models/Categories.ts`:
-
-   - `WebDevelopment`
-   - `DevOps`
-   - `SoftwareArchitecture`
-   - `SoftwareEngineering`
-   - `VersionControl`
-   - `Database`
 
 3. **Follow the guidelines**
    - Keep explanations clear and beginner-friendly
