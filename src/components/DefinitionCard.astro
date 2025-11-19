@@ -14,8 +14,8 @@ interface Props {
 const { definition } = Astro.props;
 ---
 
-<div data-type="definition-card" class="border-l-4 border-green-500 bg-white px-8 py-4">
-  <div class="mb-4 flex items-center justify-between">
+<div data-type="definition-card" class="border-l-4 border-green-500 bg-white px-4 py-4 sm:px-8">
+  <div class="mb-4 flex flex-wrap items-center justify-between gap-4">
     <div class="flex items-center gap-4">
       <h2 data-type="definition-term" class="inline text-2xl font-bold">
         <a href={`/t/${definition.id}`} class="text-black hover:text-blue-900">{definition.term}</a>
@@ -24,7 +24,7 @@ const { definition } = Astro.props;
       <p class="text-sm text-gray-600">
         {
           definition.categories.map(category => (
-            <span class="text-medium mr-2 rounded-full bg-gradient-to-br from-green-50 to-green-100 px-3 py-1 text-green-700">
+            <span class="text-medium mr-2 rounded-full bg-gradient-to-br from-green-50 to-green-100 px-3 py-1 whitespace-nowrap text-green-700">
               {category}
             </span>
           ))
@@ -126,10 +126,13 @@ const { definition } = Astro.props;
 
   {
     definition.related && definition.related.length > 0 && (
-      <p class="mt-4 flex items-center text-sm text-gray-600">
+      <p class="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-600">
         <img src={LinkIcon.src} alt="Link" class="mr-4 inline h-4 w-4" />
         {definition.related.map(related => (
-          <a href={related} class="mr-4 text-sm text-blue-500 hover:text-blue-700">
+          <a
+            href={related}
+            class="mr-4 overflow-hidden text-sm text-ellipsis whitespace-nowrap text-blue-500 hover:text-blue-700"
+          >
             {related}
           </a>
         ))}
