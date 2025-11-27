@@ -478,4 +478,36 @@ export const definitions: Definition[] = [
     categories: [Categories.Marketing],
     related: ['https://en.wikipedia.org/wiki/UTM_parameters'],
   },
+  {
+    id: 'vps',
+    term: 'VPS (Virtual Private Server)',
+    explanation:
+      'A VPS is a virtual server that is hosted on a physical server. It is a way to get a dedicated server without the cost of a dedicated server.',
+    categories: [Categories.DevOps],
+    related: ['https://en.wikipedia.org/wiki/Virtual_private_server'],
+  },
+  {
+    id: 'dns',
+    term: 'DNS (Domain Name System)',
+    explanation:
+      'DNS is a system that translates domain names into IP addresses. It is a way to make it easier to remember and type domain names instead of IP addresses.',
+    categories: [Categories.Internet],
+    related: ['https://en.wikipedia.org/wiki/Domain_Name_System'],
+  },
+  {
+    id: 'cdn',
+    term: 'CDN (Content Delivery Network)',
+    explanation:
+      'A CDN is a network of servers that deliver content to users based on their geographic location. It is a way to speed up the delivery of content to users.',
+    categories: [Categories.DevOps],
+    related: ['https://en.wikipedia.org/wiki/Content_delivery_network'],
+  },
+  {
+    id: 'cloudflare',
+    term: 'Cloudflare',
+    explanation:
+      'Cloudflare is a content delivery network and web security company that provides services like DNS, CDN, and DDoS protection.',
+    categories: [Categories.DevOps],
+    related: ['https://www.cloudflare.com'],
+  },
 ];
