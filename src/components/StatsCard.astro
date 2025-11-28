@@ -1,23 +1,13 @@
----
-import { definitions } from '../data/definitions';
-
-// Get unique categories from definitions
-const usedCategories = [...new Set(definitions.flatMap(def => def.categories))];
----
-
 <div class="rounded-lg bg-white p-4 shadow-md">
-  <h3 class="mb-6 text-lg font-bold">Quick Stats</h3>
+  <h3 class="mb-6 text-lg font-bold">Featured and Recommended by</h3>
 
   <div class="space-y-3">
-    <div class="space-y-2">
-      <div class="flex text-sm">
-        <span class="text-gray-600">Total Terms</span>
-        <span class="ml-6 font-medium text-gray-900">{definitions.length}</span>
-      </div>
-      <div class="flex text-sm">
-        <span class="text-gray-600">Categories</span>
-        <span class="ml-6 font-medium text-gray-900">{usedCategories.length}</span>
-      </div>
-    </div>
+    <a href="https://neeed.directory/products/techterms?utm_source=techterms" target="_blank">
+      <img
+        src="https://neeed.directory/badges/neeed-badge-dark.svg"
+        alt="Featured on https://neeed.directory"
+        width="139"
+      />
+    </a>
   </div>
 </div>
