@@ -10,3 +10,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.gradient-background {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
