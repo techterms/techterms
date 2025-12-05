@@ -510,4 +510,28 @@ export const definitions: Definition[] = [
     categories: [Categories.DevOps],
     related: ['https://www.cloudflare.com'],
   },
+  {
+    id: 'class',
+    term: 'Class',
+    explanation:
+      'In object-oriented programming, a class is a blueprint for creating objects. It is a way to group together related data and functions.',
+    categories: [Categories.SoftwareEngineering],
+    related: ['https://en.wikipedia.org/wiki/Class_(programming)'],
+  },
+  {
+    id: 'object',
+    term: 'Object',
+    explanation:
+      'In object-oriented programming, an object is an instance of a class. It is a way to group together related data and functions.',
+    categories: [Categories.SoftwareEngineering],
+    related: ['https://en.wikipedia.org/wiki/Object_(computer_science)'],
+  },
+  {
+    id: 'python',
+    term: 'Python',
+    explanation:
+      'Python is a programming language that uses indentation and plain-English-like syntax to structure code, making it the most popular choice for beginners, data scientists, and AI developers.',
+    categories: [Categories.SoftwareEngineering],
+    related: ['https://www.python.org'],
+  },
 ];
