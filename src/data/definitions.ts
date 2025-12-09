@@ -534,4 +534,20 @@ export const definitions: Definition[] = [
     categories: [Categories.SoftwareEngineering],
     related: ['https://www.python.org'],
   },
+  {
+    id: 'devrel',
+    term: 'Developer Relations',
+    explanation:
+      "A role focused on building relationships between a company and the developer community by creating helpful resources, listening to feedback, and making developers' lives easier.",
+    categories: [Categories.Marketing],
+    related: ['https://en.wikipedia.org/wiki/Developer_relations'],
+  },
+  {
+    id: 'community-manager',
+    term: 'Community Manager',
+    explanation:
+      'A role that involves keeping an online community running smoothly by welcoming new members, moderating discussions, organizing events, answering questions, and making sure people feel included and want to stick around.',
+    categories: [Categories.Marketing],
+    related: ['https://en.wikipedia.org/wiki/Community_manager'],
+  },
 ];
