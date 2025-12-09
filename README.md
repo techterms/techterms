@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
+![./assets/screenshot.png](./assets/screenshot.png)
+
 ## 📖 About
 
 TechTerms is an open-source glossary application that makes complex technical terminology accessible to everyone. Whether you're a newcomer to tech or an experienced developer, this platform helps you understand and learn the most common tech terms and concepts.
